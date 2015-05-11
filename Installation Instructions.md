@@ -9,15 +9,15 @@ adhere to the csv format specified in the developer guide.
 
 Hardware and software required
 ------------------------------
-Hardware Requirements
-- Windows computer 32-bit or 64-bit, with at least 4GB RAM
+Hardware Requirements
+- Windows computer 32-bit or 64-bit, with at least 4GB RAM
 - 3.5GB hard drive space for the SAP Lumira installation and data
 
 SAP Software
 - SAP Lumira 1.24 32-bit or 64-bit
 
-Third-party Software
-- Eclipse Luna Java EE IDE for Web Developers
+Third-party Software
+- Eclipse Luna Java EE IDE for Web Developers
 - Java Development Kit 7, with Update 75 or later, 32-bit or 64-bit
 - JavaScript resources that Eclipse adds automatically are the ECMA* libraries
 
@@ -50,12 +50,12 @@ Building the sample extension using Eclipse
 2. Double-click platform.target from the Eclipse Project Explorer.
 3. In the platform.target window at the top right, click the link Set as Target Platform.
 4. Right-click on export.xml > Run As > Ant Build.
-   Note:  The Eclipse Console pane, located at the bottom right, displays the
+* Note:  The Eclipse Console pane, located at the bottom right, displays the
    build progress. The Total time: will display to let you know the build is
    complete.
   
 5. In Windows Explorer, verify the presence of the compiled extension at
-   <Eclipse project path>\com.sap.lumira.sampleextension > target >
+   <Eclipse project path>\com.sap.lumira.sampleextension\target\
 
 
 Installing the extension into SAP Lumira
