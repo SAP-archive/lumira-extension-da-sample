@@ -23,14 +23,12 @@ Third-party Software
 
 
 Software Dependencies
----------------------
-This project folder contains the JSON 3rd party library software
-This project uses SAP Lumira 1.25 SDK located at 
-<installation directory>SAP Lumira\Desktop\plugins\com.sap.bi.da.extension.sdk_1.25...jar
+- This project folder contains the JSON 3rd party library software
+- This project uses SAP Lumira 1.25 SDK located at:
+- <installation directory>SAP Lumira\Desktop\plugins\com.sap.bi.da.extension.sdk_1.25...jar
 
 
 Documentation
--------------
 http://help.sap.com/lumira
 Data Access Extensions for SAP Lumira Developer Guide (version 1.25)
 
