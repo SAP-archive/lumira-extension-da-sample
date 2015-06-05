@@ -1,75 +1,81 @@
-What is SAP Lumira Data Access Extension V2 SDK?
-------------------------------------------------
-A data access extension is a plugin module created by SAP or other developers
-that allows users to access an additional data source. For example, data can be
-imported from XML files, social data sources like Twitter or Facebook, or other
-big data sources such as Google Big Query.
+Sample Extension - SAP Lumira Data Access Extension SDK V2
+==========================================================
+A data access extension is a plugin module that allows users to access an additional data source that is not supported out of the box in SAP Lumira. For example, using the SDK you can create data access extensions to import data from XML files, social data sources like Twitter or Facebook, or other databases like MongoDB.
 
-The V2 data access extension framework was released with SAP Lumira 1.24. The
-new architecture is faster uses the new Extension Manager to install the plugins.
-In the future, extensions that follow the developer guidelines may be used on
-the SAP Lumira Server and Cloud.
+This sample extension repo has code you’ll need to get started with creating your own data access extensions for Lumira 1.25 and above.
 
-The V1 DA *.exe style extensions will still work. Be sure to use the prior version
-of the Data Access Extensions for SAP Lumira Developer Guide version 1.17.
+Install the Sample Extension
+-----------------
+* Open Extension Manager, `File > Extensions`
+* Click `Manual Installation`
+* Select the zip file from `\docs`
+* Restart SAP Lumira Desktop
+* Select `File > New Dataset`
+* Select `SAP Lumira Sample Extension` from the list of connectors
+* Enter the dataset name and these parameters
+ + `CSV File`: File path of the CSV File in `docs\sample-data`
+ + `Metadata File`: Metadata file describing the data columns being imported in `docs\sample-data`
+* Select `OK` to import data into a new document
 
-SAP Lumira is SAP’s self-service analytics and visualization tool. SAP Lumira can
-be downloaded as a personal edition for free from saplumira.com (or purchased
-for enterprise usage). It allows to import data (local, DB, BI and more),
-prepare and cleanse it, visualize and finally publish & share the data in
-form of ‘stories’ and ‘info graphics’.
+Environment Setup
+-----------------
+* Requirements
+ + SAP Lumira 1.25
+ + Java Development Kit 7, Update 75 or later
+ + Eclipse Luna IDE for Java EE Developers
+* Edit `docs\eclipse.bat`
+ + Set `ECLIPSE_HOME` to your eclipse installation
+ + Set `JAVA_HOME` to your JDK installation
 
-SAP delivers various visualizations out of the box (e.g., bar & bubble charts,
-cloud tags and many more). 
+Build the Extension
+------------------
+* Run `docs\eclipse.bat` to launch Eclipse
+* Import this Sample Extension project into eclipse
+ + Open the file `platform.target`
+ + Click `Set as Target Platform` button in the top right
+ + Ignore any errors displayed on `plugin.xml` 
+* Run `export.xml` using Ant `Run As > Ant Build`
+* Install the extension zip generated in the `target` folder 
 
-SAP datasource support out of the box includes the following:
-* Microsoft Excel
-* Text (.csv, .txt, .log, .prn, .tsv)
-* Copy from Clipboard
-* Connect to SAP HANA
-* Download from SAP HANA
-* Universe
-* Query with SQL
-* Connect to SAP Business Warehouse
+Adding third-party libraries
+-------------------
+* Place a copy of the JAR in `/lib` folder
+* In `META-INF/manifest.mf`, add `lib/<jar-file-name.jar>` to `Bundle-Classpath`
+* Note: ensure you don’t remove the `,.` at the end of `Bundle-Classpath`
 
-SAP Lumira comes with an SDK. This lets you build custom extensions, which is
-typically done for specific use cases. Extensions built that way are simply
-copied into the folder structure of an SAP Lumira installation (desktop or
-server), and can then be used.
+Goodies!
+-------
+####docs/rename-dae.exe
+Script to replace text, rename files and folders to match a new extension name
+* Run the executable from the `docs` folder on a fresh copy of this repo
+* Enter the name of the new extension, no spaces, ex: `GoogleDocs`
+* Enter the package path, exclude the extension name, ex: `com.companyname.bi.da`
+* Rename the project folder and test the modified code
 
+#### want more?
+* create an issue and we’ll bake them asap :)
 
-Features
---------
-* Installs easily using the Extension Manager
-* Imports CSV data from a local file, sample data supplied
-* Metafile for column descriptions sample data supplied
-* JSON library included
-* Customize your own icons
-* Java and Javascript example of calling backend code from the JavaScript file
-* File path declaration to the CSV data file and Metadata file
-
-
-Try it!
+Resources
 -----------
-Check out our SAP Lumira Data Access Extension Library. 
-This library contains data access extension developed using the SAP Lumira V2 data access framework SDK. 
+* Documentation - [help.sap.com/lumira](http://help.sap.com/lumira)
+* Developer Guide - [SAP Lumira v2 Data Access Extension SDK Developer guide](http://help.sap.com/businessobject/product_guides/vi01/en/lum_125_dae_dev_en.pdf)
+* SCN Blog post - [Coming soon](https://www.google.com/search?q=baby+cat+pics)
 
-List of current V2 data access extensions in the repository
-* Sample Extension
+License
+---------
 
+    Copyright 2015, SAP SE
 
-Get it!
------------
-It's free. Go to the folder of each extension in this repo and get the complete source code and .profile
-and readme containing link to the SCN blog. Read the SCN blog to understand how the
-custom extension works with the help of a use case.
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
+       http://www.apache.org/licenses/LICENSE-2.0
 
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
-Hack it!
------------
-You can download these custom extensions and modify further to adapt to specific use cases. You can then publish your
-modified data access extensions to github to share them.
-
-
-
+ [1]: https://github.com/SAP/lumira-extension-da-sample
