@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="targetplatform" sequenceNumber="7">
+<locations>
+<location path="${project_loc}\lib" type="Directory"/>
+</locations>
+<includeBundles>
+<plugin id="com.sap.bi.da.extension.sdk"/>
+</includeBundles>
+</target>

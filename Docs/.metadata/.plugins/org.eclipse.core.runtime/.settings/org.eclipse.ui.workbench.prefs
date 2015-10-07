@@ -1,0 +1,3 @@
+PLUGINS_NOT_ACTIVATED_ON_STARTUP=org.eclipse.m2e.discovery;
+UIActivities.org.eclipse.plugInDevelopment=true
+eclipse.preferences.version=1

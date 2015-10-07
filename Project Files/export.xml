@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="plugin_export" name="build">
+
+	<!-- Set to the directory defined in targetplatform.target -->
+	<property name="targetplatform.dir" location="lib" />
+	
+	<target name="plugin_export">
+
+		<!-- Define build directories -->
+		<property name="build.root" location="target" />
+		<property name="build.temp" location="${build.root}/temp" />
+		<property name="unpack.dir" location="${build.temp}/unpack" />
+
+		<!-- Create build directories -->
+		<delete dir="${build.temp}" />
+		<mkdir dir="${build.temp}" />
+
+		<!-- Read the MANIFEST.MF -->
+		<copy file="META-INF/MANIFEST.MF" tofile="${build.temp}/MANIFEST.properties" />
+		<replace file="${build.temp}/MANIFEST.properties">
+			<replacefilter token=":=" value="=" />
+			<replacefilter token=":" value="=" />
+			<replacetoken>;</replacetoken>
+			<replacevalue>
+			</replacevalue>
+		</replace>
+		<property file="${build.temp}/MANIFEST.properties" />
+		<property name="plugin.name" value="${Bundle-SymbolicName}" />
+
+		<!-- Compute plugin version -->
+		<tstamp>
+		      <format property="version.qualifier" pattern="yyyyMMddHHmm" unit="minute"/>
+		</tstamp>
+		<loadresource property="version.full">
+		  <propertyresource name="Bundle-Version"/>
+		  <filterchain>
+		    <tokenfilter>
+		      <filetokenizer/>
+		      <replacestring from="qualifier" to="${version.qualifier}"/>
+		    </tokenfilter>
+		  </filterchain>
+		</loadresource>
+		<property name="plugin.jarname" value="${plugin.name}_${version.full}" />
+
+		<!-- Set plugin version in MANIFEST.MF-->
+		<copy file="META-INF/MANIFEST.MF" tofile="${build.temp}/MANIFEST.MF" />
+		<replace file="${build.temp}/MANIFEST.MF" token="qualifier" value="${version.qualifier}"/>
+
+		<!-- Plugin locations -->
+		<property name="plugin.dir" location="${unpack.dir}/eclipse/plugins" />
+		<property name="plugin.jar" location="${plugin.dir}/${plugin.jarname}.jar" />
+		<property name="features.dir" location="${unpack.dir}/features" />
+		<property name="product.zip" location="${build.root}/${plugin.jarname}.zip" />
+		<property name="bundles.dir" location="${unpack.dir}/bundles" />
+		
+		<!-- Copy the WebContent folder -->
+		<delete dir="${bundles.dir}" />
+		<copy todir="${bundles.dir}">
+			<fileset dir="WebContent/" />
+		</copy>
+
+		<!-- Replace version in bundle.js file -->
+		<replace dir="${bundles.dir}" value="${version.full}">
+		  <include name="**/*-bundle.js"/>
+		  <replacetoken>REPLACE_VERSION</replacetoken>
+		</replace>
+
+		<!-- Copy the features folder -->
+		<delete dir="${features.dir}" />
+		<copy todir="${features.dir}">
+			<fileset dir="features" />
+		</copy>
+
+		<!-- Replace version in feature json file -->
+		<replace dir="${features.dir}" value="${version.full}">
+		  <include name="**/*.json"/>
+		  <replacetoken>REPLACE_VERSION</replacetoken>
+		</replace>
+
+		<!-- Assemble plug-in JAR -->
+		<property name="build.result.folder" location="bin" />
+		<antcall target="build.jar" />
+		<mkdir dir="${plugin.dir}" />
+		<jar destfile="${plugin.jar}" manifest="${build.temp}/MANIFEST.MF" zip64Mode="never">
+			<zipfileset dir="${build.result.folder}" />
+			<zipfileset dir="." includes="plugin.xml" />
+			<zipfileset dir="${targetplatform.dir}" excludes="com.sap.bi.da.extension.sdk_1.25.0.jar" prefix="lib"/>
+		</jar>
+
+		<!-- Copy any required jars to the /lib folder and entries must be added to the MANIFEST.MF file under META-INF as lib/<jar-file> -->
+
+		<!-- Assemble the product zip -->
+		<zip destfile="${product.zip}" level="9" zip64Mode="never">
+			<fileset dir="${build.temp}/unpack" />
+		</zip>
+
+	</target>
+
+	<target name="build.jar" unless="build.jar" description="build classes">
+		<delete dir="${build.result.folder}" />
+		<mkdir dir="${build.result.folder}" />
+		<path id="build.classpath">
+			<fileset dir="${targetplatform.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+		<!-- compile the source code -->
+		<property name="bundleJavacSource" value="1.7" />
+		<property name="bundleJavacTarget" value="1.7" />
+		<javac destdir="${build.result.folder}" failonerror="false" verbose="false" debug="on" includeAntRuntime="no" source="${bundleJavacSource}" target="${bundleJavacTarget}">
+			<classpath refid="build.classpath" />
+			<src path="src/" />
+			<src path="WebContent/" />
+			<compilerarg value="@${build.temp}/javaCompiler...args" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" />
+			<compilerarg line="-log &apos;${build.temp}/build.log&apos;" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" />
+		</javac>
+	</target>
+</project>
