@@ -2,13 +2,13 @@ Sample Extension - SAP Lumira Data Access Extension SDK V2
 ==========================================================
 A data access extension is a plugin module that allows users to access an additional data source that is not supported out of the box in SAP Lumira. For example, using the SDK you can create data access extensions to import data from XML files, social data sources like Twitter or Facebook, or other databases like MongoDB.
 
-This sample extension repo has code you’ll need to get started with creating your own data access extensions for Lumira 1.25 and above.
+This sample extension repo has code youâ€™ll need to get started with creating your own data access extensions for Lumira 1.25 and above.
 
 Install the Sample Extension
 -----------------
 * Open Extension Manager, `File > Extensions`
 * Click `Manual Installation`
-* Select the zip file from `\docs`
+* Select the zip file called `com.sap.lumira.sampleextension.zip`
 * Restart SAP Lumira Desktop
 * Select `File > New Dataset`
 * Select `SAP Lumira Sample Extension` from the list of connectors
@@ -41,7 +41,7 @@ Adding third-party libraries
 -------------------
 * Place a copy of the JAR in `/lib` folder
 * In `META-INF/manifest.mf`, add `lib/<jar-file-name.jar>` to `Bundle-Classpath`
-* Note: ensure you don’t remove the `,.` at the end of `Bundle-Classpath`
+* Note: ensure you donâ€™t remove the `,.` at the end of `Bundle-Classpath`
 
 Goodies!
 -------
@@ -53,7 +53,7 @@ Script to replace text, rename files and folders to match a new extension name
 * Rename the project folder and test the modified code
 
 #### want more?
-* create an issue and we’ll bake them asap :)
+* create an issue and weâ€™ll bake them asap :)
 
 Resources
 -----------
