@@ -47,7 +47,7 @@ define(function() {
         // These paths correspond to the included sample data if the workspace was unzipped to the C drive
         var datasetTxt = new sap.ui.commons.TextField({
             width : '100%',
-            value : 'C:\\workspace_SampleExtension\\Sample Data\\data.csv'
+            value : 'C:\\lumira-extension-da-sample-master\\Docs\\sample-data\\data1.csv'
         });
 
         var datasetLbl = new sap.ui.commons.Label({
@@ -61,7 +61,7 @@ define(function() {
 
         var metadataTxt = new sap.ui.commons.TextField({
             width : '100%',
-            value : 'C:\\workspace_SampleExtension\\Sample Data\\metadata.txt'
+            value : 'C:\\lumira-extension-da-sample-master\\Docs\\sample-data\\metadata.txt'
         });
 
         var metadataLbl = new sap.ui.commons.Label({
@@ -149,7 +149,7 @@ define(function() {
             content: [dLayout],
             buttons : [okButton, cancelButton]
         });
-        dialog.setTitle("Sample Extension: " + envProperties.datasetName);
+        dialog.setTitle("Sample Extension:" + workflow + ": " + envProperties.datasetName);
 
         this.showDialog = function() {
             dialog.open();

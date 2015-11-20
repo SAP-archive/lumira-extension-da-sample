@@ -58,6 +58,14 @@ define(["service!sap.bi.da.extension.sdk.clientRequestService", "SampleExtension
             oDeferred.resolve(acquisitionState);
             return oDeferred.promise();
         };
+
+        // This function will be called during a refresh with prompts workflow 
+        // The implementation of this function is optional
+        // Any data sources support parameter prompts can implement this function to re-prompt during refresh
+        // Parameter prompting UI Minimal UI should be shown
+        this.doRefreshWithPromptWorkflow = function(acquisitionState) {
+            return createSampleExtensionDialog(acquisitionState, "REFRESH_WITH_PROMPTS");
+        };
     }
 
     // Functions that do not need to access private variables can be declared as part of the prototype

@@ -3,9 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: SAP Lumira Sample Extension
 Bundle-ClassPath: lib/org.json_0.0.0.jar,.
 Bundle-SymbolicName: com.sap.lumira.sampleextension;singleton:=true
-Bundle-Version: 1.25.0.qualifier
+Bundle-Version: 1.29.2.qualifier
 Bundle-Vendor: SAP
-Require-Bundle: com.sap.bi.da.extension.sdk;bundle-version="1.25.0"
+Require-Bundle: com.sap.bi.da.extension.sdk;bundle-version="1.29.2"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.sap.lumira.sampleextension

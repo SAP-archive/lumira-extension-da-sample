@@ -11,7 +11,7 @@
   "requires": [
     {
 	  "id": "sap.bi.da.extension.sdk",
-	  "version": "1.25.0",
+	  "version": "1.29.0",
 	  "match": "greaterOrEqual"
     }
   ],
