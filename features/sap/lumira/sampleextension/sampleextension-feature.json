@@ -1,0 +1,32 @@
+{
+  "metadataVersion": "1.0",
+  "id": "sap.lumira.sampleextension",
+  "name": "SAP Lumira Sample Extension",
+  "description": "for SAP Lumira Data Acquisition Framework",
+  "version": "REPLACE_VERSION",
+  "vendor" : {
+    "name": "SAP",
+    "url": "www.sap.com"
+  },
+  "requires": [
+    {
+	  "id": "sap.bi.da.extension.sdk",
+	  "version": "1.29.0",
+	  "match": "greaterOrEqual"
+    }
+  ],
+  "eclipse": {
+    "plugins": [
+	  {
+	    "id": "com.sap.lumira.sampleextension",
+		"version": "REPLACE_VERSION"
+	  }
+	]
+  },
+  "bundles": [
+    {
+      "id": "sap.lumira.sampleextension",
+      "version": "REPLACE_VERSION"
+    }
+  ]
+}
