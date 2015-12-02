@@ -47,7 +47,7 @@ define(function() {
         // These paths correspond to the included sample data if the workspace was unzipped to the C drive
         var datasetTxt = new sap.ui.commons.TextField({
             width : '100%',
-            value : 'C:\\lumira-extension-da-sample-master\\Docs\\sample-data\\data1.csv'
+            value : 'C:\\lumira-extension-da-sample-master\\docs\\sample-data\\data1.csv'
         });
 
         var datasetLbl = new sap.ui.commons.Label({
@@ -58,10 +58,39 @@ define(function() {
         dLayout.createRow({
             height : "30px"
         }, datasetLbl, datasetTxt);
+        
+        //button to browse csv file
+        var csvBrowseFile = function(datasetTxt, oEvent) {
+            var ext = window.viMessages.getText("CSV") + "\0*.csv";
+            var filePath = app.fileOpenDialog(ext);
+            if (filePath){
+            	datasetTxt.setValue(filePath);
+            	var filename = filePath.replace(/^.*[\\\/]/, '');
+            	filename = filename.substr(0, filename.lastIndexOf('.'));
+            	datasetNameTxt.setValue(filename);
+                //this.inputChanged(oEvent);
+            }
+        };
+        
+        var CSVImportButton = new sap.ui.commons.Button({
+            press : csvBrowseFile.bind(this, datasetTxt),
+            text : "Browse CSV File",
+            tooltip : "Browse CSV File"
+        }).addStyleClass(sap.ui.commons.ButtonStyle.Emph);
+
+        var CSVBrowseButtonLbl = new sap.ui.commons.Label({
+            text : "",
+            labelFor : CSVImportButton
+        });
+        
+        dLayout.createRow({
+            height: "30px"
+        }, CSVBrowseButtonLbl, CSVImportButton);
+        
 
         var metadataTxt = new sap.ui.commons.TextField({
             width : '100%',
-            value : 'C:\\lumira-extension-da-sample-master\\Docs\\sample-data\\metadata.txt'
+            value : 'C:\\lumira-extension-da-sample-master\\docs\\sample-data\\metadata.txt'
         });
 
         var metadataLbl = new sap.ui.commons.Label({
@@ -72,6 +101,31 @@ define(function() {
         dLayout.createRow({
             height : "30px"
         }, metadataLbl, metadataTxt);
+        
+        // button to browse metadata.txt file
+        var metadataBrowseFile = function(metadataTxt, oEvent) {
+            var ext = window.viMessages.getText("txt") + "\0*.txt";
+            var filePath = app.fileOpenDialog(ext);
+            if (filePath){
+            	metadataTxt.setValue(filePath);
+                //this.inputChanged(oEvent);
+            }
+        };
+        
+        var MetadataImportButton = new sap.ui.commons.Button({
+            press : metadataBrowseFile.bind(this, metadataTxt),
+            text : "Browse Metadata File",
+            tooltip : "Browse Metadata File"
+        }).addStyleClass(sap.ui.commons.ButtonStyle.Emph);
+
+        var MetadataBrowseButtonLbl = new sap.ui.commons.Label({
+            text : "",
+            labelFor : MetadataImportButton
+        });
+        
+        dLayout.createRow({
+            height: "30px"
+        }, MetadataBrowseButtonLbl, MetadataImportButton);
 
         // Client request call example
         var pingBtn = new sap.ui.commons.Button({

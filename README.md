@@ -1,4 +1,4 @@
-Sample Extension - SAP Lumira Data Access Extension SDK V2
+Sample Extension - SAP Lumira Version 2 Data Access Extension SDK
 ==========================================================
 A data access extension is a plugin module that allows users to access an additional data source that is not supported out of the box in SAP Lumira. For example, using the SDK you can create data access extensions to import data from XML files, social data sources like Twitter or Facebook, or other databases like MongoDB.
 
@@ -20,7 +20,7 @@ Install the Sample Extension
 Environment Setup
 -----------------
 * Requirements
- + SAP Lumira 1.29
+ + SAP Lumira 1.29 and above
  + Java Development Kit 7, Update 75 or later
  + Eclipse Luna IDE for Java EE Developers
 * Edit `docs\eclipse.bat`
@@ -59,7 +59,8 @@ Resources
 -----------
 * Documentation - [help.sap.com/lumira](http://help.sap.com/lumira)
 * Developer Guide - [SAP Lumira v2 Data Access Extension SDK Developer guide](http://help.sap.com/businessobject/product_guides/vi01/en/lum_125_dae_dev_en.pdf)
-* SCN Blog post - [Coming soon](https://www.google.com/search?q=baby+cat+pics)
+* SCN Blog post - [Getting Started with the V2 Data Access Extension SDK](http://scn.sap.com/community/lumira/blog/2015/06/18/get-started-with-the-sap-lumira-v2-data-access-extension-sdk)
+* Webinar - [Introduction to the Version 2 DAE SDK](https://youtu.be/_ERmzCqhUN0)
 
 License
 ---------
