@@ -148,6 +148,7 @@ define(function() {
         Button press events
         */
         var buttonCancelPressed = function() {
+        	oDeferred.reject(); //promise fail
             dialog.close(); // dialog is hoisted from below
         };
 
@@ -175,6 +176,7 @@ define(function() {
 
         var onClosed = function() {
             if (oDeferred.state() === "pending") {
+            	this.destroy();
                 oDeferred.reject();
             }
         };
@@ -199,7 +201,10 @@ define(function() {
             height : "480px",
             modal : true,
             resizable : false,
-            closed : onClosed,
+            closed : function () {
+            	this.destroy();
+            	oDeferred.reject();
+            },
             content: [dLayout],
             buttons : [okButton, cancelButton]
         });
