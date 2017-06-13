@@ -92,7 +92,10 @@ public class SampleExtension implements IDAExtension {
         @Override
         public File execute(IDAEProgress callback) throws DAException {
             try {
+            	//Get info object from acquisitionState
                 JSONObject infoJSON = new JSONObject(acquisitionState.getInfo());
+                
+                //Get CSV file path from the info object, and return it as a File
                 File csv = new File(infoJSON.getString("csv"));
                 return csv;
             } catch (Exception e) {
@@ -123,6 +126,8 @@ public class SampleExtension implements IDAExtension {
             try {
                 JSONObject infoJSON = new JSONObject(acquisitionState.getInfo());
                 File metadataFile = new File(infoJSON.getString("metadata"));
+                
+                //read the metadata file and return it as a String
                 String metadata = new String(Files.readAllBytes(metadataFile.toPath()));
                 return metadata;
             } catch (Exception e) {
