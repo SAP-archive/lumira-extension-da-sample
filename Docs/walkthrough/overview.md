@@ -16,7 +16,7 @@ You can use the “Extension Manager” to easily install existing Data Access E
 - Click “Manual Installation” in the bottom-right corner & navigate to the extension zip file
 - Restart Lumira, and the extension will appear in the list of possible data sources when creating a new document 
 
-![](./docs/walkthrough/photos/20-extension-manager.PNG)
+![](./photos/20-extension-manager.PNG)
 
 ### Architecture
 There are two parts of an extension: The user interface (client) and the backend. The user interface captures your query input, and the backend fetches the data based on those parameters.
@@ -28,8 +28,8 @@ The backend is created with Java, and reads the query parameters that you input 
 
 To get started, check out the "Sample Extension" and "Debugging" walkthroughs:
 
-### [Sample Extension](./docs/walkthrough/sample-da.md)
-### [Debugging](./docs/walkthrough/debugging.md)
+### [Sample Extension](./sample-da.md)
+### [Debugging](./debugging.md)
 
 Then, learn more about building your own extension by following the example tutorial:
 
