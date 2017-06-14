@@ -72,4 +72,4 @@ Now that we are familiar with debugging extensions, let's walk through how to bu
 
 ### [Building Data Access Extensions](./building-da.md)
 ### [Sample Extension](./sample-da.md)
-### [Back to Overview](./README.md)
+### [Back to Overview](../../README.md)
