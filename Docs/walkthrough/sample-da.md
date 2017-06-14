@@ -1,5 +1,5 @@
 ## Sample Data Access Extension
-We have a sample Data Access Extension you can explore and use as a starter project, hosted here in this repo. The extension zip file can be downloaded [here](https://github.com/SAP/lumira-extension-da-sample/blob/master/install-extension/com.sap.lumira.sampleextension_1.29.2.201601041448.zip), and you can follow the instructions on ‘“Installing Data Access Extensions” in the [Overview](../../README.md) to try it out. 
+We have a sample Data Access Extension you can explore and use as a starter project, hosted here in this repo. The extension zip file can be downloaded [here](../../install-extension/Lumira-1.x%2B2.x(Discovery)/com.sap.lumira.sampleextension_1.29.2.201706131346.zip), and you can follow the instructions on ‘“Installing Data Access Extensions” in the [Overview](../../README.md) to try it out. 
 
 In this sample extension you can input a name for your dataset and browse your drive for a CSV file to import into Lumira, as well as its metadata .txt file  (sample files included). The sample extension also showcases how you can send requests from the JavaScript client to receive responses from the Java backend.
 
