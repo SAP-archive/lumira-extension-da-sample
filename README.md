@@ -33,9 +33,9 @@ To get started, check out the "Sample Extension" and "Debugging" walkthroughs:
 ### [Sample Extension](./Docs/walkthrough/sample-da.md)
 ### [Debugging](./Docs/walkthrough/debugging.md)
 
-Then, learn more about building your own extension by following the example tutorial:
+Then, learn more about building your own extension by following the Twitter extension example tutorial:
 
-### [Building Data Access Extensions](./building-da.md)
+### [Building Data Access Extensions](https://github.com/denzalereese/lumira-extension-da-twitter)
 
 
 
