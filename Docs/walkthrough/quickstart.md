@@ -1,8 +1,4 @@
-Sample Extension - SAP Lumira Version 2 Data Access Extension SDK
-==========================================================
-A data access extension is a plugin module that allows users to access an additional data source that is not supported out of the box in SAP Lumira. For example, using the SDK you can create data access extensions to import data from XML files, social data sources like Twitter or Facebook, or other databases like MongoDB.
-
-This sample extension repo has code you’ll need to get started with creating your own data access extensions for Lumira 1.29 and above.
+#Data Access Extensions - Quickstart
 
 Install the Sample Extension
 -----------------
@@ -20,7 +16,7 @@ Install the Sample Extension
 Environment Setup
 -----------------
 * Requirements
- + SAP Lumira 1.29 and above
+ + SAP Lumira 1.29+ & Discovery
  + Java Development Kit 7, Update 75 or later
  + Eclipse Luna IDE for Java EE Developers
 * Edit `docs\eclipse.bat`
@@ -41,7 +37,7 @@ Adding third-party libraries
 -------------------
 * Place a copy of the JAR in `/lib` folder
 * In `META-INF/manifest.mf`, add `lib/<jar-file-name.jar>` to `Bundle-Classpath`
-* Note: ensure you don’t remove the `,.` at the end of `Bundle-Classpath`
+* Note: ensure you donâ€™t remove the `,.` at the end of `Bundle-Classpath`
 
 Goodies!
 -------
@@ -53,7 +49,7 @@ Script to replace text, rename files and folders to match a new extension name
 * Rename the project folder and test the modified code
 
 #### want more?
-* create an issue and we’ll bake them asap :)
+* create an issue and weâ€™ll bake them asap :)
 
 Resources
 -----------
@@ -61,22 +57,3 @@ Resources
 * Developer Guide - [SAP Lumira v2 Data Access Extension SDK Developer guide](http://help.sap.com/businessobject/product_guides/vi01/en/lum_125_dae_dev_en.pdf)
 * SCN Blog post - [Getting Started with the V2 Data Access Extension SDK](http://scn.sap.com/community/lumira/blog/2015/06/18/get-started-with-the-sap-lumira-v2-data-access-extension-sdk)
 * Webinar - [Introduction to the Version 2 DAE SDK](https://youtu.be/_ERmzCqhUN0)
-
-License
----------
-
-    Copyright 2015, SAP SE
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
- [1]: https://github.com/SAP/lumira-extension-da-sample

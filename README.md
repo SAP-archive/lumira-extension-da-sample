@@ -1,6 +1,6 @@
 # Data Access Extensions
 
-(If you already familiar with building Data Access extensions, feel free to download this repo as starter code and/or use the Quickstart guide.) 
+(If you already familiar with building Data Access extensions, feel free to download this repo as starter code and/or use the [Quickstart Guide](./Docs/walkthrough/quickstart.md).) 
 
 ## Overview 
 SAP BusinessObjects Lumira 1.x and Discovery are self-service data visualization tools that make it easy to create interactive maps, charts, and infographics. Import & clean data from a variety of sources, build visualizations, and share stunning dashboards. 
