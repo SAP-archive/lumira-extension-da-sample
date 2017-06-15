@@ -1,6 +1,8 @@
 # Data Access Extensions
 
-(If you already familiar with building Data Access extensions, feel free to download this repo as starter code and/or use the [Quickstart Guide](./Docs/walkthrough/quickstart.md).) 
+This repo contains a Sample Data Access extension that can be used as starter code for you to build your own. Read below for more information on Data Access Extensions for SAP Lumira, walkthroughs, and tutorials. 
+
+(If you already familiar with building Data Access extensions, feel free to  skip to downloading this repo and/or using the [Quickstart Guide](./Docs/walkthrough/quickstart.md).) 
 
 ## Overview 
 SAP Lumira 1.x and 2.x Discovery are self-service data visualization tools that make it easy to create interactive maps, charts, and infographics. Import & clean data from a variety of sources, build visualizations, and share stunning dashboards. 
@@ -28,12 +30,12 @@ The user interface is created with JavaScript, and typically a dialog that is di
 The backend is created with Java, and reads the query parameters that you input in the user interface. It then fetches the data, converts the data to a CSV file, and imports the data into Lumira. For import, the backend also supplies JSON metadata to classify your data into measures and dimensions.
 
 
-To get started, check out the "Sample Extension" and "Debugging" walkthroughs:
+To get started, check out the "Sample Extension" (code in this repo) and "Debugging" walkthroughs:
 
 ### [Sample Extension](./Docs/walkthrough/sample-da.md)
 ### [Debugging](./Docs/walkthrough/debugging.md)
 
-Then, learn more about building your own extension by following the Twitter extension example tutorial:
+Then, learn more about building your own extension using this sample, by following the Twitter extension example tutorial:
 
 ### [Building Data Access Extensions](https://github.com/denzalereese/lumira-extension-da-twitter)
 
