@@ -8,7 +8,7 @@ In this sample extension you can input a name for your dataset and browse your d
 ### User Interface (client)
 The user interface in this sample extension uses SAP OpenUI5. We recommend OpenUI5, as it is native to the SDK and allows you to create a seamless user experience that is congruent with Lumira. However, you are able to use any libraries you like!
 
-(If you have used or built Data Access Extensions with OpenUI5 before, note that SAP BusinessObjects Lumira Discovery does not support components from the sap.ui.commons library ---- please use the sap.m library instead).
+(If you have used or built Data Access Extensions with OpenUI5 before, note that SAP Lumira 2.x Discovery does not support components from the sap.ui.commons library ---- please use the sap.m library instead).
 
 Let’s take a look at the client-side code.
 

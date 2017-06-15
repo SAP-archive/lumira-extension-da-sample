@@ -18,7 +18,7 @@ Install the Sample Extension
 Environment Setup
 -----------------
 * Requirements
- + SAP Lumira 1.29+ & Discovery
+ + SAP Lumira 1.29+ & 2.x Discovery
  + Java Development Kit 7, Update 75 or later
  + Eclipse Luna IDE for Java EE Developers
 * Edit `Docs\eclipse.bat`

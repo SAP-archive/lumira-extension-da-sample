@@ -3,17 +3,17 @@
 (If you already familiar with building Data Access extensions, feel free to download this repo as starter code and/or use the [Quickstart Guide](./Docs/walkthrough/quickstart.md).) 
 
 ## Overview 
-SAP BusinessObjects Lumira 1.x and Discovery are self-service data visualization tools that make it easy to create interactive maps, charts, and infographics. Import & clean data from a variety of sources, build visualizations, and share stunning dashboards. 
+SAP Lumira 1.x and 2.x Discovery are self-service data visualization tools that make it easy to create interactive maps, charts, and infographics. Import & clean data from a variety of sources, build visualizations, and share stunning dashboards. 
 
 Though Lumira comes with a variety of possible visualizations and data connectors out of the box, you may also want something more specific to fit the use cases in your story. Lumira is also a platform that ships with an SDK, enabling you to build custom visualization and data access extensions that directly match your needs. 
 
 ## Introduction 
-SAP BusinessObjects Lumira allows you to import data from a variety of places like CSV, Excel, and SAP HANA. We understand that your data may come from a different source, and that the ever-changing data industry requires flexibility to what new sources may emerge. For this reason, you can further expand Lumira with “Data Access Extensions”  that integrate Lumira with custom data connections. Examples of Data Access Extensions can include integration with REST API’s, Google Sheets, social networks, etc. ---- the possibilities are vast. This repo contains the code for a Sample Data Access extension. You can download the extension zip here, follow the instructions below to install it in Lumira, and check out the walkthroughs to learn more about building your own.  
+SAP Lumira allows you to import data from a variety of places like CSV, Excel, and SAP HANA. We understand that your data may come from a different source, and that the ever-changing data industry requires flexibility to what new sources may emerge. For this reason, you can further expand Lumira with “Data Access Extensions”  that integrate Lumira with custom data connections. Examples of Data Access Extensions can include integration with REST API’s, Google Sheets, social networks, etc. ---- the possibilities are vast. This repo contains the code for a Sample Data Access extension. You can download the extension zip here, follow the instructions below to install it in Lumira, and check out the walkthroughs to learn more about building your own.  
 
 ### Installing Data Access Extensions
 You can use the “Extension Manager” to easily install existing Data Access Extensions, or ones you have built yourself:
 
-- Open SAP BusinessObjects Lumira (1.29+ or Discovery)
+- Open SAP Lumira (1.29+ or 2.x Discovery)
 - Select File > Extensions to open the Extension Manager (or Ctrl + J)
 - Click “Manual Installation” in the bottom-right corner & navigate to the extension zip file
 - Restart Lumira, and the extension will appear in the list of possible data sources when creating a new document 

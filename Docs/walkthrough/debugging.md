@@ -3,7 +3,7 @@ In order to enable debugging, you modify the .ini file located within your Lumir
 
 E.g. C: > Program Files > SAP Lumira > Desktop > SAPLumira.ini
 
-Or similarly in Lumira Discovery:
+Or similarly in Lumira 2.x Discovery:
 
 E.g. C: > Program Files > SAP BusinessObjects Lumira > Lumira Discovery >  Desktop > SBOPLumiraDiscovery.ini
 
