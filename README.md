@@ -37,6 +37,8 @@ Then, learn more about building your own extension by following the Twitter exte
 
 ### [Building Data Access Extensions](https://github.com/denzalereese/lumira-extension-da-twitter)
 
+### [Quickstart Guide](./Docs/walkthrough/quickstart.md)
+
 
 
 
