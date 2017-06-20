@@ -70,6 +70,6 @@ Here, you can set breakpoints and debug your Java code.
 
 Now that we are familiar with debugging extensions, let's walk through how to build our own using the sample extension as starter code.
 
-### [Building Data Access Extensions](./building-da.md)
+### [Twitter Data Access Extension example](https://github.com/denzalereese/lumira-extension-da-twitter)
 ### [Sample Extension](./sample-da.md)
 ### [Back to Overview](../../README.md)
