@@ -35,7 +35,7 @@ To get started, check out the "Sample Extension" (code in this repo) and "Debugg
 
 Then, learn more about building your own extension using this sample, by following the Twitter extension example tutorial:
 
-### [Twitter-lite Data Access Extension example](https://github.com/denzalereese/lumira-extension-da-twitter)
+### [Twitter Data Access Extension example](https://github.com/denzalereese/lumira-extension-da-twitter)
 
 
 
