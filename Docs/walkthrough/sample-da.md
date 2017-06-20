@@ -312,5 +312,5 @@ public String execute(IDAEProgress callback) throws DAException {
 
 Now, let's see how we can debug our extensions:
 ### [Debugging](./debugging.md)
-### [Building Data Access Extensions](https://github.com/denzalereese/lumira-extension-da-twitter)
+### [Twitter Data Access Extension example](https://github.com/denzalereese/lumira-extension-da-twitter)
 ### [Back to Overview](../../README.md)
