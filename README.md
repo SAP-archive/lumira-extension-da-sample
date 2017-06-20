@@ -2,8 +2,6 @@
 
 This repo contains a Sample Data Access extension that can be used as starter code for you to build your own. Read below for more information on Data Access Extensions for SAP Lumira, walkthroughs, and tutorials. 
 
-(If you already familiar with building Data Access extensions, feel free to  skip to downloading this repo and/or using the [Quickstart Guide](./Docs/walkthrough/quickstart.md).) 
-
 ## Overview 
 SAP Lumira 1.x and 2.x Discovery are self-service data visualization tools that make it easy to create interactive maps, charts, and infographics. Import & clean data from a variety of sources, build visualizations, and share stunning dashboards. 
 
@@ -37,9 +35,7 @@ To get started, check out the "Sample Extension" (code in this repo) and "Debugg
 
 Then, learn more about building your own extension using this sample, by following the Twitter extension example tutorial:
 
-### [Building Data Access Extensions](https://github.com/denzalereese/lumira-extension-da-twitter)
-
-### [Quickstart Guide](./Docs/walkthrough/quickstart.md)
+### [Twitter-lite Data Access Extension example](https://github.com/denzalereese/lumira-extension-da-twitter)
 
 
 
