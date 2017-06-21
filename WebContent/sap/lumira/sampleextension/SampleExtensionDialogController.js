@@ -19,201 +19,153 @@ define(function() {
 
     var SampleExtensionDialogController = function(acquisitionState, oDeferred, fServiceCall, workflow) {
 
-        /*
-        Create dialog controls
-        */
-        var dLayout = new sap.ui.commons.layout.MatrixLayout({
-            layoutFixed : true,
-            columns : 2,
-            width : "570px",
-            widths : [ "20%", "80%" ]
+    	//Create dialog
+
+        //button to close the dialog
+        var closeDialogButton = new sap.m.Button({
+            text: "Close",
+            type: "Reject",
+            width: "100px",
+            press: function() {
+                if (oDeferred.state() == "pending") {
+                    this.destroy();
+                    oDeferred.reject();
+                }
+                dialog.close();
+            }
         });
 
-        var datasetNameTxt = new sap.ui.commons.TextField({
-            width : '100%',
-            value : "",
-            enabled : workflow === "CREATE"
+        var dialog = new sap.m.Dialog({
+            contentWidth: "720px",
+            contentHeight: "480px",
+            title: "Sample Extension",
+            endButton: closeDialogButton
         });
 
-        var datasetNameLbl = new sap.ui.commons.Label({
-            text : "Dataset Name:",
-            labelFor : datasetNameTxt
+
+        //Create dialog controls and add them to the dialog
+
+        var datasetNameLabel = new sap.m.Label({
+            text: "Dataset Name:",
+            labelFor: datasetNameText
         });
 
-        dLayout.createRow({
-            height : "30px"
-        }, datasetNameLbl, datasetNameTxt);
+        dialog.addContent(datasetNameLabel);
 
-        // These paths correspond to the included sample data if the workspace was unzipped to the C drive
-        var datasetTxt = new sap.ui.commons.TextField({
-            width : '100%',
-            value : 'C:\\lumira-extension-da-sample-master\\docs\\sample-data\\data1.csv'
+        var datasetNameText = new sap.m.Input({
+            width: "100%",
+            placeholder: "My Dataset"
         });
 
-        var datasetLbl = new sap.ui.commons.Label({
-            text : "CSV File:",
-            labelFor : datasetTxt
+        dialog.addContent(datasetNameText);
+
+        var csvFileLabel = new sap.m.Label({
+            text: "CSV File:",
+            labelFor: csvFileText
         });
 
-        dLayout.createRow({
-            height : "30px"
-        }, datasetLbl, datasetTxt);
-        
-        //button to browse csv file
-        var csvBrowseFile = function(datasetTxt, oEvent) {
+        dialog.addContent(csvFileLabel);
+
+        var csvFileText = new sap.m.Input({
+            width: "100%",
+            placeholder: "C:\\lumira-extension-da-sample\\docs\\sample-data\\data1.csv"
+        });
+
+        dialog.addContent(csvFileText);
+
+        //opens the file explorer for the user to browse their computer for a csv file
+        var browseForCSV = function(csvFileText, oEvent) {
             var ext = window.viMessages.getText("CSV") + "\0*.csv";
             var filePath = app.fileOpenDialog(ext);
-            if (filePath){
-            	datasetTxt.setValue(filePath);
-            	var filename = filePath.replace(/^.*[\\\/]/, '');
-            	filename = filename.substr(0, filename.lastIndexOf('.'));
-            	datasetNameTxt.setValue(filename);
-                //this.inputChanged(oEvent);
+            if (filePath) {
+                csvFileText.setValue(filePath);
+                var fileName = filePath.replace(/^.*[\\\/]/, '');
+                fileName = fileName.substr(0, fileName.lastIndexOf('.'));
+                datasetNameTxt.setValue(fileName);
             }
         };
-        
-        var CSVImportButton = new sap.ui.commons.Button({
-            press : csvBrowseFile.bind(this, datasetTxt),
-            text : "Browse CSV File",
-            tooltip : "Browse CSV File"
-        }).addStyleClass(sap.ui.commons.ButtonStyle.Emph);
 
-        var CSVBrowseButtonLbl = new sap.ui.commons.Label({
-            text : "",
-            labelFor : CSVImportButton
-        });
-        
-        dLayout.createRow({
-            height: "30px"
-        }, CSVBrowseButtonLbl, CSVImportButton);
-        
+        var browseCSVButton = new sap.m.Button({
+            text: "Browse CSV File",
+            press: browseForCSV.bind(this, csvFileText)
+        }).addStyleClass("sample-da-button");
 
-        var metadataTxt = new sap.ui.commons.TextField({
-            width : '100%',
-            value : 'C:\\lumira-extension-da-sample-master\\docs\\sample-data\\metadata.txt'
+        dialog.addContent(browseCSVButton);
+
+        var metadataFileLabel = new sap.m.Label({
+            text: "Metadata File:",
+            labelFor: metadataFileText
         });
 
-        var metadataLbl = new sap.ui.commons.Label({
-            text : "Metadata File:",
-            labelFor : metadataTxt
+        dialog.addContent(metadataFileLabel);
+
+        var metadataFileText = new sap.m.Input({
+            width: "100%",
+            placeholder: "C:\\lumira-extension-da-sample\\docs\\sample-data\\metadata.txt"
         });
 
-        dLayout.createRow({
-            height : "30px"
-        }, metadataLbl, metadataTxt);
-        
-        // button to browse metadata.txt file
-        var metadataBrowseFile = function(metadataTxt, oEvent) {
+        dialog.addContent(metadataFileText);
+
+        //opens the file explorer for the user to browse their computer for metadata txt file
+        var browseForMetadata = function(metadataFileText, oEvent) {
             var ext = window.viMessages.getText("txt") + "\0*.txt";
             var filePath = app.fileOpenDialog(ext);
-            if (filePath){
-            	metadataTxt.setValue(filePath);
-                //this.inputChanged(oEvent);
+            if (filePath) {
+                metadataFileText.setValue(filePath);
             }
         };
-        
-        var MetadataImportButton = new sap.ui.commons.Button({
-            press : metadataBrowseFile.bind(this, metadataTxt),
-            text : "Browse Metadata File",
-            tooltip : "Browse Metadata File"
-        }).addStyleClass(sap.ui.commons.ButtonStyle.Emph);
 
-        var MetadataBrowseButtonLbl = new sap.ui.commons.Label({
-            text : "",
-            labelFor : MetadataImportButton
-        });
-        
-        dLayout.createRow({
-            height: "30px"
-        }, MetadataBrowseButtonLbl, MetadataImportButton);
+        var browseMetadataButton = new sap.m.Button({
+            text: "Browse Metadata File",
+            press: browseForMetadata.bind(this, metadataFileText)
+        }).addStyleClass("sample-da-button");
 
-        // Client request call example
-        var pingBtn = new sap.ui.commons.Button({
-            press : [ function() {
-                fServiceCall("ping", function(response) {
-                    sap.ui.commons.MessageBox.alert(response);
-                }, function(actionRequired, errorMessage, fullErrorObject) {
-                    sap.ui.commons.MessageBox.alert(errorMessage);
-                });
-            }, this ],
-            text : "Ping",
-            enabled : true
-        }).addStyleClass("button_ellipsis");
+        dialog.addContent(browseMetadataButton);
 
-        dLayout.createRow({
-            height : "30px"
-        }, pingBtn);
-
-        /*
-        Button press events
-        */
-        var buttonCancelPressed = function() {
-        	oDeferred.reject(); //promise fail
-            dialog.close(); // dialog is hoisted from below
-        };
-
-        var buttonOKPressed = function() {
+        function okButtonPressed() {
             var info = {};
-            info.csv = datasetTxt.getValue();
-            info.metadata = metadataTxt.getValue();
-            info.datasetName =  datasetNameTxt.getValue();
+            info.csv = csvFileText.getValue();
+            info.metadata = metadataFileText.getValue();
+            info.datasetName = datasetNameText.getValue();
             acquisitionState.info = JSON.stringify(info);
-            oDeferred.resolve(acquisitionState, datasetNameTxt.getValue());
+            oDeferred.resolve(acquisitionState, datasetNameText.getValue());
             dialog.close();
         };
 
-        var okButton = new sap.ui.commons.Button({
-            press : [ buttonOKPressed, this ],
-            text : "OK",
-            tooltip : "OK"
-        }).setStyle(sap.ui.commons.ButtonStyle.Accept);
+        var okButton = new sap.m.Button({
+            text: "Ok",
+            type: "Accept",
+            width: "100px",
+            press: okButtonPressed
+        }).addStyleClass("sample-da-button");
 
-        var cancelButton = new sap.ui.commons.Button({
-            press : [ buttonCancelPressed, this ],
-            text : "Cancel",
-            tooltip : "Cancel"
-        }).addStyleClass(sap.ui.commons.ButtonStyle.Default);
-
-        var onClosed = function() {
-            if (oDeferred.state() === "pending") {
-            	this.destroy();
-                oDeferred.reject();
+        dialog.addContent(okButton);
+        
+        //sends a request to the backend and receives a response
+        var pingButton = new sap.m.Button({
+            text: "Ping",
+            press: function() {
+                fServiceCall("ping", function(response) {
+                	//Lumira 1.x does not have sap.m.MessageBox: so here we first check if it is present, 
+                	//and use the sap.ui.commons.MessageBox if not
+                    sap.m.MessageBox ? sap.m.MessageBox.alert(response) : sap.ui.commons.MessageBox.alert(response);
+                }, function(actionRequired, errorMessage, fullErrorObject) {
+                    sap.m.MessageBox ? sap.m.MessageBox.alert(errorMessage) : sap.ui.commons.MessageBox.alert(response);
+                });
             }
-        };
+        }).addStyleClass("sample-da-button");
 
-        /*
-        Modify controls based on acquisitionState
-        */
-        var envProperties = acquisitionState.envProps;
-        if (acquisitionState.info) {
-            var info = JSON.parse(acquisitionState.info);
-            datasetTxt.setValue(info.csv);
-            metadataTxt.setValue(info.metadata);
-            envProperties.datasetName = info.datasetName;
-        }
-        datasetNameTxt.setValue(envProperties.datasetName);
-
-        /*
-        Create the dialog
-        */
-        var dialog = new sap.ui.commons.Dialog({
-            width : "720px",
-            height : "480px",
-            modal : true,
-            resizable : false,
-            closed : function () {
-            	this.destroy();
-            	oDeferred.reject();
-            },
-            content: [dLayout],
-            buttons : [okButton, cancelButton]
-        });
-        dialog.setTitle("Sample Extension:" + workflow + ": " + envProperties.datasetName);
+        dialog.addContent(pingButton);
 
         this.showDialog = function() {
             dialog.open();
+            
+            //adds custom css
+            $(".sample-da-button").css("display", "block");
+            $(".sample-da-button").css("margin-bottom", "2%");
         };
     };
+
 
     return SampleExtensionDialogController;
 });
