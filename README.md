@@ -1,3 +1,8 @@
+![](https://img.shields.io/badge/STATUS-NOT%20CURRENTLY%20MAINTAINED-red.svg?longCache=true&style=flat)
+
+# Important Notice
+This public repository is read-only and no longer maintained.
+
 # Data Access Extensions
 
 This repo contains a Sample Data Access extension that can be used as starter code for you to build your own. Read below for more information on Data Access Extensions for SAP Lumira, walkthroughs, and tutorials. 
